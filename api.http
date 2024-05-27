@@ -1,0 +1,26 @@
+// Recuperar todo los usuarios
+GET http://localhost:3306/usuarios?semestre=params
+
+
+// Recuperar usuarios por id
+GET http://localhost:3306/usuarios?id=params
+
+
+// Crear usuario
+POST http://localhost:3306/usuarios
+Content-Type: application/json
+{
+  "nombre": "Nuevo Recurso",
+  "descripcion": "Descripción del recurso",
+  "url": "https://ejemplo.com",
+  "materia_id": 1,
+  "tipo_recurso_id": 2
+}
+
+
+// Eliminar usuario
+DELETE http://localhost:3306/usuarios?id=params
+
+
+// Actualizar usuario
+PATCH http://localhost:3306/usuarios?id=params
