@@ -4,6 +4,11 @@ import { DataTypes } from 'sequelize';
 import sequelize from '../../config/db.js';
 
 export const Materia = sequelize.define('materia', {
+  materia_id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+  },
   nombre: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -23,7 +28,7 @@ export const Materia = sequelize.define('materia', {
     type: DataTypes.INTEGER,
     allowNull: false
   },
-  semestreId: {
+  semestre_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {

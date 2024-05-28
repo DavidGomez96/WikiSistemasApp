@@ -32,7 +32,6 @@ Usuario.belongsTo(Rol, { foreignkey: 'rol_id' });
 Rol.hasMany(Usuario, { foreignKey: 'usuario_id' });
 
 // Una materia pertenece a un semestre
-Materia.belongsTo(Semestre, { foreignKey: 'semestre_id' });
 // Una materia tiene muchos recursos
 Materia.hasMany(Recurso, { foreignKey: 'recurso_id' });
 
@@ -41,7 +40,9 @@ Recurso.belongsTo(Materia, { foreignKey: 'materia_id' });
 // Un recurso tiene un tipo de recurso
 Recurso.belongsTo(TipoRecurso, { foreignKey: 'tipo_recurso_id' })
 
-Semestre.hasMany(Materia, { foreignKey: 'semestre_id' });
+Semestre.hasMany(Materia, { foreignKey: 'materia_id' });
+Materia.belongsTo(Semestre);
+
 
 // Un tipo de recuroso tiene muchos recursos asociados
 TipoRecurso.hasMany(Recurso, { foreignKey: 'recurso_id' })

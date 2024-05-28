@@ -5,6 +5,11 @@ import { DataTypes } from 'sequelize';
 import sequelize from '../../config/db.js';
 
 export const Semestre = sequelize.define('semestre', {
+  semestre_id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+  },
   nombre: {
     type: DataTypes.STRING,
     allowNull: false
