@@ -41,6 +41,7 @@ Recurso.belongsTo(Materia, { foreignKey: 'materia_id' });
 // Un recurso tiene un tipo de recurso
 Recurso.belongsTo(TipoRecurso, { foreignKey: 'tipo_recurso_id' })
 
+Semestre.hasMany(Materia, { foreignKey: 'semestre_id' });
 
 // Un tipo de recuroso tiene muchos recursos asociados
 TipoRecurso.hasMany(Recurso, { foreignKey: 'recurso_id' })

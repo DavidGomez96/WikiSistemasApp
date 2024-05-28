@@ -1,10 +1,11 @@
 import { Router } from "express";
-import MateriaController from "../controllers/materiasController";
+import MateriaController from "../controllers/materiasController.js";
 
 export const materiaRouter = Router();
 
-// Obtener todas las materia por semestre
-materiaRouter.get('/semestre_id', MateriaController.getMateriaBySemestre);
+// Obtener todas las materias por semestre
+materiaRouter.get('/semestre/:semestre_id', MateriaController.getMateriaBySemestre);
+
 // Obtener materia por Id
 materiaRouter.get('/:id', MateriaController.getMateriaById);
 
