@@ -4,7 +4,7 @@ import RecursoController from "../controllers/recursosController.js";
 export const recursoRouter = Router();
 
 // obtener todos los recursoss
-recursoRouter.get('/', RecursoController.getAllRecursos);
+recursoRouter.get('/materias/:materias_id', RecursoController.getAllRecursos);
 // obtener los recursos segun la materia a la que pertenezcan
 recursoRouter.get('/:materia_id', RecursoController.getRecursosByMateria);
 

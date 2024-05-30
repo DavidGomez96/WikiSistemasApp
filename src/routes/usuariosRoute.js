@@ -4,12 +4,12 @@ import UsuarioController from "../controllers/usuariosController.js";
 export const usuarioRouter = Router();
 
 // Obtener todos los usuarios
-usuarioRouter.get('/', UsuarioController.getAllUsuarios);
+usuarioRouter.get('/usuarios', UsuarioController.getAllUsuarios);
 // Obtener usuario por el id
 usuarioRouter.get('/:id', UsuarioController.getUsuarioById);
 
 //Crear usuario
-usuarioRouter.post('/', UsuarioController.createUsuario);
+usuarioRouter.post('/usuarios', UsuarioController.createUsuario);
 
 // Actualizar usuario
 usuarioRouter.patch('/:id', UsuarioController.updateUsuario);

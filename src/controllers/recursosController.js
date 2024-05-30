@@ -21,7 +21,7 @@ export class RecursoController {
     console.log('recurso por id bien')
     try {
       const recursos = await Recurso.findAll({
-        attributes: ['*'],
+        // attributes: ['*'],
         includes: [Materia]
       });
       res.json(recursos);
@@ -69,32 +69,3 @@ export class RecursoController {
 };
 
 export default RecursoController;
-
-
-
-
-
-// import { recursosModel } from "../models/recursosModel.js";
-
-// export class recursoController {
-
-//   static async getAll(req, res) {
-
-//   }
-
-//   static async getBiId (req, res) {
-
-//   }
-
-//   static async create (req, res) {
-
-//   }
-
-//   static async delete (req, res) {
-
-//   }
-
-//   static async update (req, res) {
-
-//   }
-// }
