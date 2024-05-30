@@ -3,7 +3,7 @@ import cors from 'cors'
 import materiaRouter from './routes/materiasRoute.js';
 import recursoRouter from './routes/recursosRoute.js';
 import usuarioRouter from './routes/usuariosRoute.js';
-import semestreRoute from './routes/semestreRoute.js';
+import semestreRouter from './routes/semestreRoute.js';
 import comentariosRouter from './routes/comentariosRoute.js';
 
 
@@ -17,7 +17,7 @@ app.use(cors())
 app.use('/materias', materiaRouter);
 app.use('/recursos', recursoRouter);
 app.use('/usuarios', usuarioRouter)
-app.use('/semestres', semestreRoute);
+app.use('/semestres', semestreRouter);
 app.use('/comentarios', comentariosRouter)
 
 app.listen(PORT, () => {

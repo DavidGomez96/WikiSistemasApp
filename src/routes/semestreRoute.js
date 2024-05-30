@@ -2,8 +2,8 @@ import { Router } from "express";
 import SemestreController from "../controllers/semestreController.js";
 
 
-export const semestreRoute = Router();
+export const semestreRouter = Router();
 
-semestreRoute.get('/', SemestreController.getAll);
+semestreRouter.get('/', SemestreController.getAll);
 
-export default semestreRoute;
+export default semestreRouter;
