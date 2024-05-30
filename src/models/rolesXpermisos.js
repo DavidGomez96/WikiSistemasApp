@@ -5,16 +5,16 @@ import { DataTypes } from 'sequelize';
 import sequelize from '../../config/db';
 
 export const RolXPermiso = sequelize.define('rolesXpermisos', {
-  rolId: {
-    type: DataTypes.STRING,
+  rol_id: {
+    type: DataTypes.INTEGER,
     allowNull: false,
     references: {
       model: Rol,
       key: 'id'
     }
   },
-  permisoId: {
-    type: DataTypes.STRING,
+  permiso_id: {
+    type: DataTypes.INTEGER,
     allowNull: false,
     references: {
       model: Permiso,

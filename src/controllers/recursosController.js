@@ -1,6 +1,5 @@
-import { Materia } from '../models/materiasModel.js';
-import { Recurso } from '../models/recursosModel.js';
-import sequelize from '../../config/db.js';
+import Materia from '../models/materiasModel.js';
+import Recurso from '../models/recursosModel.js';
 
 
 export class RecursoController {
@@ -19,11 +18,14 @@ export class RecursoController {
   };
   
   static async getAllRecursos (req, res) {
+    console.log('recurso por id bien')
     try {
       const recursos = await Recurso.findAll({
-        includes: [Materia]
+        // attributes: ['*'],
+        // includes: [Materia]
       });
       res.json(recursos);
+
     } catch (error) {
       res.status(400).json({ error: error.message })
     }

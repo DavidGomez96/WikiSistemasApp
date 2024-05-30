@@ -1,20 +1,40 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../../config/db.js';
 
-export const Rol = sequelize.define('roles', {
-  nombre: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true
-  },
-  descripcion: {
-    type: DataTypes.STRING,
-    allowNull: false
+class RolModel {
+  constructor() {
+    this.Rol = this._defineModel();
   }
-},
-{
-  tableName: 'tbl_roles',
-  timestamps: false,
-});
+
+  _defineModel () {
+    return sequelize.define('roles', {
+      rol_id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      nombre: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
+      },
+      descripcion: {
+        type: DataTypes.STRING,
+        allowNull: false
+      }
+    }, {
+      tableName: 'tbl_roles',
+      timestamps: false,
+    });
+  };
+
+  getModel() {
+    return this.Rol;
+  }
+
+};
+
+const RolInstance = new RolModel();
+const Rol = RolInstance.getModel();
 
 export default Rol;

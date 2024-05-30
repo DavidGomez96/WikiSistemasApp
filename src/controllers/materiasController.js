@@ -1,5 +1,5 @@
-import { Materia } from '../models/materiasModel.js';
-import { Semestre } from '../models/semestresModel.js';
+import Materia from '../models/materiasModel.js';
+import Semestre from '../models/semestresModel.js';
 
 export class MateriaController {
   
@@ -11,6 +11,7 @@ export class MateriaController {
         include: Semestre,
       });
       res.json(materias);
+      // return res.status(200).send(materias)
     } catch (error) {
       res.status(500).json({ error: error.message });
     }

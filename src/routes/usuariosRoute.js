@@ -1,5 +1,5 @@
 import { Router } from "express";
-import UsuarioController from "../controllers/usuariosController";
+import UsuarioController from "../controllers/usuariosController.js";
 
 export const usuarioRouter = Router();
 
@@ -17,3 +17,4 @@ usuarioRouter.patch('/:id', UsuarioController.updateUsuario);
 // Eliminar usuario
 usuarioRouter.delete('/:id', UsuarioController.deleteUsuario);
 
+export default usuarioRouter;

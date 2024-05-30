@@ -17,3 +17,6 @@ materiaRouter.put('/:id', MateriaController.updateMateria);
 
 // Eliminar materia
 materiaRouter.delete('/:id', MateriaController.deleteMateria);
+
+
+export default materiaRouter;

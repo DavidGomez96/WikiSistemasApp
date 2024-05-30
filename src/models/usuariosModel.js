@@ -1,66 +1,65 @@
-import { Roles } from './rolesModel.js';
+import Rol from './rolesModel.js';
 
 import { DataTypes } from 'sequelize';
 import sequelize from '../../config/db.js';
 
-export const Usuario = sequelize.define('usuario', {
-  nombre: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true
-  },
-  correo: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true
-  },
-  contraseña: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  fecha_nacimiento: {
-    type: DataTypes.DATE,
-    allowNull: false
-  },
-  rolesId: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    references: {
-      model: Roles,
-      key: 'id'
-    }
-  }, 
-},
-{
-  tableName: 'tbl_usuarios',
-  timestamps: false,
-});
+class UsuarioModel{
+  constructor() {
+    this.Usuario = this._defineModel();
+    this._associateModels();
+  }
 
-//! relacionada con rol HACER RELACION
+  _defineModel() {
+    return sequelize.define('Usuario', {
+      usuario_id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      nombre: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
+      },
+      correo: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
+      },
+      contrasena: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      fecha_nacimiento: {
+        type: DataTypes.DATE,
+        allowNull: false
+      },
+      rol_id: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        references: {
+          model: Rol,
+          key: 'rol_id'
+        }
+      }, 
+    }, {
+      tableName: 'tbl_usuarios',
+      timestamps: false,
+    })
+  };
 
+  _associateModels() {
+    this.Usuario.belongsTo(Rol, {
+      foreignKey: 'rol_id', 
+      onDelete: 'CASCADE'})
+  }
+
+  getModel() {
+    return this.Usuario;
+  }
+}
+
+const UsuarioInstance = new UsuarioModel();
+const Usuario = UsuarioInstance.getModel();
 
 export default Usuario;
-// import conexion from "../config.js";
-
-// export class usuariosModel {
-
-//   static async getAll({ semestre }){
-
-//   }
-
-//   static async getById({ id }){
-
-//   }
-
-//   static async create ({ input }){
-
-//   }
-
-//   static async delete ({ id }){
-
-//   }
-
-//   static async update ({ id }){
-
-//   }
-// }

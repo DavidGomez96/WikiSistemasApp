@@ -1,4 +1,4 @@
-import { Usuario } from '../models/usuariosModel.js'
+import Usuario from '../models/usuariosModel.js'
 
 export class UsuarioController {
   
@@ -27,8 +27,8 @@ export class UsuarioController {
 
   static async createUsuario (req, res) {
     try{
-      const { googleId, nombre, correo, fecha_nacimiento, rol_id } = req.body;
-      const nuevoUsuario = await Usuario.create({ googleId, nombre, correo, fecha_nacimiento, rol_id });
+      const { nombre, correo, contrasena, fecha_nacimiento, rol_id } = req.body;
+      const nuevoUsuario = await Usuario.create({ nombre, correo, contrasena, fecha_nacimiento, rol_id });
       res.json(nuevoUsuario);
     }catch (error){
       res.status(400).json({ error: error.message });
@@ -62,29 +62,3 @@ export class UsuarioController {
 };
 
 export default UsuarioController;
-
-
-// import { usuariosModel } from "../models/usuariosModel.js";
-
-// export class usuarioController {
-
-//   static async getAll(req, res) {
-
-//   }
-
-//   static async getBiId (req, res) {
-
-//   }
-
-//   static async create (req, res) {
-
-//   }
-
-//   static async delete (req, res) {
-
-//   }
-
-//   static async update (req, res) {
-    
-//   }
-// }

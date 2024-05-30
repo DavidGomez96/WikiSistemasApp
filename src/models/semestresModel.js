@@ -1,31 +1,40 @@
-// import { DataTypes } from "sequelize";
-// import sequelize from "../src/database.js";
-// import { Materia } from "./materiasModel.js";
 import { DataTypes } from 'sequelize';
 import sequelize from '../../config/db.js';
 
-export const Semestre = sequelize.define('semestre', {
-  semestre_id: {
-    type: DataTypes.INTEGER,
-    autoIncrement: true,
-    primaryKey: true,
-  },
-  nombre: {
-    type: DataTypes.STRING,
-    allowNull: false
+class SemestreModel {
+  constructor() {
+    this.Semestre = this._defineModel();
+    this._asociateModel();
   }
-},
-{
-  tableName: 'tbl_semestres',
-  timestamps: false,
-});
 
-// Semestre.hasMany(Materia, { as: 'materias' })
+  _defineModel() {
+    return sequelize.define('Semestre', {
+      semestre_id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      nombre: {
+        type: DataTypes.STRING,
+        allowNull: false
+      }
+    }, {
+      tableName: 'tbl_semestres',
+      timestamps: false,
+    });
+  };
 
-// sequelize.sync().then(() => {
-//   console.log('semestre bien')
-// }).catch((error) => {
-//   console.log('error en semestre')
-// })
+  _asociateModel() {
+    
+  }
+
+  getModel() {
+    return this.Semestre;
+  }
+
+};
+
+const SemestreInstance = new SemestreModel();
+const Semestre = SemestreInstance.getModel();
 
 export default Semestre;
