@@ -55,10 +55,10 @@ class MateriaModel {
       onDelete: 'CASCADE' 
     });
     
-      Semestre.hasMany(this.Materia, { 
-      foreignKey: 'materia_id', 
-      as: 'materias'
-    });
+    //   Semestre.hasMany(this.Materia, { 
+    //   foreignKey: 'materia_id', 
+    //   as: 'materias'
+    // });
   }
 
   getModel() {

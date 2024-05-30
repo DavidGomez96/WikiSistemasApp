@@ -33,16 +33,16 @@ class RecursoModel {
         unique: true
       },
       materia_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
-        reference: {
+        references: {
           model: Materia,
           key: 'materia_id'
         },
         field: 'materia_id'
       },
       tipo_recurso_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false,
         references: {
           model: TipoRecurso,
@@ -67,10 +67,10 @@ class RecursoModel {
       onDelete: 'CASCADE'
     });
 
-    Materia.hasMany(this.Recurso, {
-      foreignkey: 'recurso_id',
-      as: 'recursos'
-    })
+    // Materia.hasMany(this.Recurso, {
+    //   foreignkey: 'recurso_id',
+    //   as: 'recursos'
+    // })
   };
 
   getModel() {

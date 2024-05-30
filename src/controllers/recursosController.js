@@ -21,8 +21,8 @@ export class RecursoController {
     console.log('recurso por id bien')
     try {
       const recursos = await Recurso.findAll({
-        // attributes: ['*'],
-        // includes: [Materia]
+        attributes: ['*'],
+        includes: [Materia]
       });
       res.json(recursos);
 
