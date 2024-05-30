@@ -4,6 +4,7 @@ import materiaRouter from './routes/materiasRoute.js';
 import recursoRouter from './routes/recursosRoute.js';
 import usuarioRouter from './routes/usuariosRoute.js';
 import semestreRoute from './routes/semestreRoute.js';
+import comentariosRouter from './routes/comentariosRoute.js';
 
 
 const app = express();
@@ -17,6 +18,7 @@ app.use('/materias', materiaRouter);
 app.use('/recursos', recursoRouter);
 app.use('/usuarios', usuarioRouter)
 app.use('/semestres', semestreRoute);
+app.use('/comentarios', comentariosRouter)
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

@@ -1,5 +1,5 @@
-import Comentario from "../models/comentarioModel";
-import Usuario from "../models/usuariosModel";
+import Comentario from "../models/comentarioModel.js";
+import Usuario from "../models/usuariosModel.js";
 
 export class ComentarioController {
   
