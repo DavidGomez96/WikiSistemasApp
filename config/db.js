@@ -1,16 +1,16 @@
 import Sequelize from 'sequelize';
 
 export const sequelize = new Sequelize(
-  'wiki_sistemas_db',
+  'wikisistemas',
   'root',
-  '12345',
+  '',
   {
     host: 'localhost',
     dialect: 'mysql'
   }
 );
 
-sequelize.sync({ force: false })
+sequelize.sync({ force: true })
 .then(() => {
     console.log('Database synchronized');
 })

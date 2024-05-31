@@ -1,87 +1,48 @@
+import { DataTypes } from 'sequelize';
+import sequelize from '../../config/db.js';
 import Materia from './materiasModel.js';
 import TipoRecurso from './tipoRecursosModel.js';
 
-import { DataTypes, Model } from 'sequelize';
-import sequelize from '../../config/db.js';
-
-class RecursoModel {
-  constructor() {
-    this.Recurso = this._defineModel();
-    this._associateModel();
+const Recurso = sequelize.define('Recurso', {
+  recurso_id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+  },
+  nombre: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true
+  },
+  descripcion: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true
+  },
+  url: {
+    type: DataTypes.STRING,
+    allowNull: true
+  },
+  materia_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: Materia,
+      key: 'materia_id'
+    },
+  },
+  tipo_recurso_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: TipoRecurso,
+      key: 'tipo_recurso_id'
+    },
   }
-
-  _defineModel() {
-    return sequelize.define('recurso', {
-      recurso_id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
-      },
-      nombre: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true
-      },
-      descripcion: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true
-      },
-      url: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true
-      },
-      materia_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: Materia,
-          key: 'materia_id'
-        },
-        field: 'materia_id'
-      },
-      tipo_recurso_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: TipoRecurso,
-          key: 'tipo_recurso_id'
-        },
-        field: 'tipo_recurso_id'
-      }
-    }, {
-      tableName: 'tbl_recursos',
-      timestamps: false,
-    });
-  };
-
-  _associateModel() {
-    this.Recurso.belongsTo(Materia, {
-      foreignKey: 'materia_id',
-      onDelete: 'CASCADE'
-    });
-
-    this.Recurso.belongsTo(TipoRecurso, {
-      foreignKey: 'tipo_recurso_id',
-      onDelete: 'CASCADE'
-    });
-
-    // Materia.hasMany(this.Recurso, {
-    //   foreignkey: 'recurso_id',
-    //   as: 'recursos'
-    // })
-  };
-
-  getModel() {
-    return this.Recurso;
-  }
-
-};
-
-const RecursoInstance = new RecursoModel();
-const Recurso = RecursoInstance.getModel();
+}, {
+  tableName: 'tbl_recursos',
+  timestamps: false,
+});
 
 export default Recurso;
 
-//! relacionado con dos materia y tipo_de_recurso HACER RELACION

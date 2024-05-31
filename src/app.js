@@ -5,19 +5,20 @@ import recursoRouter from './routes/recursosRoute.js';
 import usuarioRouter from './routes/usuariosRoute.js';
 import semestreRouter from './routes/semestreRoute.js';
 import comentariosRouter from './routes/comentariosRoute.js';
+// import {} from './models/index.js'
 
 
 const app = express();
 const PORT = 8080;
 
 app.use(express.json()); // Para manejar las solicitudes con cuerpo en formato JSON
-app.use(cors())
+app.use(cors()) 
 
 // Usar el router de materias
+app.use('/semestres', semestreRouter);
 app.use('/materias', materiaRouter);
 app.use('/recursos', recursoRouter);
-app.use('/usuarios', usuarioRouter)
-app.use('/semestres', semestreRouter);
+app.use('/usuarios', usuarioRouter);
 app.use('/comentarios', comentariosRouter)
 
 app.listen(PORT, () => {

@@ -1,5 +1,6 @@
-import Materia from '../models/materiasModel.js';
-import Semestre from '../models/semestresModel.js';
+// import Materia from '../models/materiasModel.js';
+// import Semestre from '../models/semestresModel.js';
+import { Semestre, Materia } from "../models/index.js";
 
 export class MateriaController {
   

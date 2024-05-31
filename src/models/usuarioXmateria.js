@@ -1,46 +1,28 @@
-import { Materia } from './materiasModel.js';
-import { Usuario } from './usuariosModel.js';
-
 import { DataTypes } from 'sequelize';
 import sequelize from '../../config/db.js';
+import Usuario from './usuariosModel.js';
+import Materia from './materiasModel.js';
 
-class UsuarioXMateriaModel {
-  constructor() {
-    this.UsuarioXMateria = this._defineModel();
-  };
-
-  _defineModel() {
-    return sequelize.define('usuarioXmateria', {
-      usuario_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        unique: true,
-        references: {
-          model: Usuario,
-          key: 'id'
-        }
-      },
-      materia_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        unique: true,
-        references: {
-          model: Materia,
-          key: 'id'
-        }
-      }
-    }, {
-      tableName: 'tbl_usuariosXmaterias',
-      timestamps: false
-    });
-  };
-
-  getModel() {
-    return this.UsuarioXMateria;
+const UsuarioXMateria = sequelize.define('UsuarioXMateria', {
+  usuario_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: Usuario,
+      key: 'usuario_id'
+    }
+  },
+  materia_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: Materia,
+      key: 'materia_id'
+    }
   }
-};
+}, {
+  tableName: 'tbl_usuariosXmaterias',
+  timestamps: false
+});
 
-const UsuarioXMateriaInstance = new UsuarioXMateriaModel();
-const UsuarioXMateria = UsuarioXMateriaInstance()
-
-export default  UsuarioXMateria;
+export default UsuarioXMateria;

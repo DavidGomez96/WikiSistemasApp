@@ -1,5 +1,7 @@
-import Materia from '../models/materiasModel.js';
-import Recurso from '../models/recursosModel.js';
+// import Materia from '../models/materiasModel.js';
+// import Materia from '../models/materiasModel.js';
+// import Recurso from '../models/recursosModel.js';
+import { Materia, Recurso } from "../models/index.js";
 
 
 export class RecursoController {

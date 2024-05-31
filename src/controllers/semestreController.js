@@ -1,4 +1,5 @@
-import Semestre from "../models/semestresModel.js";
+// import Semestre from "../models/semestresModel.js";
+import {Semestre} from "../models/index.js";
 
 export class SemestreController {
 
