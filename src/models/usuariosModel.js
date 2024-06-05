@@ -22,10 +22,6 @@ const Usuario = sequelize.define('Usuario', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  fecha_nacimiento: {
-    type: DataTypes.DATE,
-    allowNull: false
-  },
   rol_id: {
     type: DataTypes.INTEGER,
     allowNull: false,

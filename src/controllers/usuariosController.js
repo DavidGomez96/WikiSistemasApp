@@ -28,8 +28,8 @@ export class UsuarioController {
 
   static async createUsuario (req, res) {
     try{
-      const { nombre, correo, contrasena, fecha_nacimiento, rol_id } = req.body;
-      const nuevoUsuario = await Usuario.create({ nombre, correo, contrasena, fecha_nacimiento, rol_id });
+      const { nombre, correo, contrasena, rol_id } = req.body;
+      const nuevoUsuario = await Usuario.create({ nombre, correo, contrasena, rol_id });
       res.json(nuevoUsuario);
     }catch (error){
       res.status(400).json({ error: error.message });
@@ -39,8 +39,8 @@ export class UsuarioController {
   static async updateUsuario (req, res) {
     try{
       const { id } = req.params;
-      const { nombre, correo, fecha_nacimiento, rol_id } = req.params;
-      await Usuario.update({ nombre, correo, fecha_nacimiento, rol_id }, {
+      const { nombre, correo, rol_id } = req.params;
+      await Usuario.update({ nombre, correo, rol_id }, {
         where: { id }
       })
       res.json({ message: 'Usuario actualizado' });

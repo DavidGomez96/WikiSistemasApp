@@ -14,6 +14,8 @@ const PORT = 8080;
 app.use(express.json()); // Para manejar las solicitudes con cuerpo en formato JSON
 app.use(cors()) 
 
+app.use('/api', comentariosRouter); // Asegúrate de que el prefijo del endpoint sea '/api'
+
 // Usar el router de materias
 app.use('/semestres', semestreRouter);
 app.use('/materias', materiaRouter);
