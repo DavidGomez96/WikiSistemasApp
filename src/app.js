@@ -5,6 +5,7 @@ import recursoRouter from './routes/recursosRoute.js';
 import usuarioRouter from './routes/usuariosRoute.js';
 import semestreRouter from './routes/semestreRoute.js';
 import comentariosRouter from './routes/comentariosRoute.js';
+import authRouter from './routes/authRoute.js';
 // import {} from './models/index.js'
 
 
@@ -22,6 +23,7 @@ app.use('/materias', materiaRouter);
 app.use('/recursos', recursoRouter);
 app.use('/usuarios', usuarioRouter);
 app.use('/comentarios', comentariosRouter)
+app.use('/login',authRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
