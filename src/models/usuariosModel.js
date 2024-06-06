@@ -26,7 +26,7 @@ const Usuario = sequelize.define('Usuario', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: Rol,
+      model: 'tbl_roles',
       key: 'rol_id'
     }
   }

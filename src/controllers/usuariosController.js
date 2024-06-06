@@ -39,7 +39,7 @@ export class UsuarioController {
   static async updateUsuario (req, res) {
     try{
       const { id } = req.params;
-      const { nombre, correo, rol_id } = req.params;
+      const { nombre, correo, rol_id } = req.body;
       await Usuario.update({ nombre, correo, rol_id }, {
         where: { id }
       })

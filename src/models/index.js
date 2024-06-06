@@ -12,11 +12,11 @@ import UsuarioXMateria from './usuarioXmateria.js';
 import { Sequelize } from 'sequelize';
 
 // Relaciones
-Usuario.hasOne(Rol, {
+Usuario.belongsTo(Rol, {
     foreignKey: 'rol_id',
     onDelete: 'CASCADE'
 });
-Rol.belongsTo(Usuario, {
+Rol.hasMany(Usuario, {
     foreignKey: 'rol_id'
 });
 
