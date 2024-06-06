@@ -23,6 +23,8 @@ const UsuarioXMateria = sequelize.define('UsuarioXMateria', {
 }, {
   tableName: 'tbl_usuariosXmaterias',
   timestamps: false
+
+  
 });
 
 export default UsuarioXMateria;
