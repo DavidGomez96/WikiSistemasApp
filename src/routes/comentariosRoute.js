@@ -1,5 +1,5 @@
-import { Router } from "express"
-;import ComentarioController from "../controllers/comentarioController.js";
+import { Router } from "express";
+import ComentarioController from "../controllers/comentarioController.js";
 
 export const comentarioRouter = Router();
 
@@ -7,7 +7,7 @@ export const comentarioRouter = Router();
 comentarioRouter.get('/', ComentarioController.getAllComentarios);
 
 // Crear comentario
-comentarioRouter.post('/comentarios', ComentarioController.createComentario);
+comentarioRouter.post('/', ComentarioController.createComentario);
 
 // Actualizar comentario
 comentarioRouter.put('/:id', ComentarioController.updateComentario);

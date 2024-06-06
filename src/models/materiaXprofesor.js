@@ -6,6 +6,7 @@ import Profesor from './profesoresModel.js';
 const MateriaXProfesor = sequelize.define('MateriaXProfesor', {
   materia_id: {
     type: DataTypes.INTEGER,
+    allowNull: false,
     references: {
       model: Materia,
       key: 'materia_id'
@@ -13,6 +14,7 @@ const MateriaXProfesor = sequelize.define('MateriaXProfesor', {
   },
   profesor_id: {
     type: DataTypes.INTEGER,
+    allowNull: false,
     references: {
       model: Profesor,
       key: 'profesor_id'

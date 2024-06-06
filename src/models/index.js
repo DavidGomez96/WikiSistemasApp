@@ -53,14 +53,28 @@ Semestre.hasMany(Materia, {
     as: 'materias'
 });
 
-Materia.belongsToMany(Profesor, {
-    through: MateriaXProfesor,
+
+
+
+
+Materia.hasMany(MateriaXProfesor, {
+    onDelete: 'CASCADE',
     foreignKey: 'materia_id'
 });
-Profesor.belongsToMany(Materia, {
-    through: MateriaXProfesor,
+
+
+Profesor.hasMany(MateriaXProfesor, {
+    onDelete: 'CASCADE',
     foreignKey: 'profesor_id'
 });
+
+MateriaXProfesor.belongsTo(Profesor,{
+    foreignKey: 'profesor_id'
+})
+
+MateriaXProfesor.belongsTo(Materia,{
+    foreignKey:'materia_id'
+})
 
 Materia.hasMany(Recurso, {
     foreignKey: 'materia_id',

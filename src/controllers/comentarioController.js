@@ -1,32 +1,29 @@
-// import Comentario from "../models/comentarioModel.js";
-// import Usuario from "../models/usuariosModel.js";
-
 import { Comentario, Usuario } from "../models/index.js";
 
 export class ComentarioController {
   
-  static async getAllComentarios (req, res) {
+  static async getAllComentarios(req, res) {
     try {
       const comentarios = await Comentario.findAll({
-        includes: [Usuario]
+        include: Usuario // Cambié "includes" a "include" y quité los corchetes
       });
-      res.json(comentarios)
-    }catch (error) {
-      res.status(400).json({ error: error.message })
+      res.json(comentarios);
+    } catch (error) {
+      res.status(400).json({ error: error.message });
     }
   };
 
-  static async createComentario (req, res) {
+  static async createComentario(req, res) {
     try {
       const { descripcion, usuario_id } = req.body;
       const newComentario = await Comentario.create({ descripcion, usuario_id });
-      res.json(newComentario)
-    }catch (error){
-      res.status(400).json({ error: error.message })
+      res.json(newComentario);
+    } catch (error) {
+      res.status(400).json({ error: error.message });
     }
   };
 
-  static async updateComentario (req, res) {
+  static async updateComentario(req, res) {
     try {
       const { id } = req.params;
       const { descripcion, usuario_id } = req.body;
@@ -41,8 +38,8 @@ export class ComentarioController {
       await comentario.save();
 
       res.json(comentario);
-      }catch (error) {
-        res.status(400).json({ error: error.message });
+    } catch (error) {
+      res.status(400).json({ error: error.message });
     }
   }
 
@@ -63,6 +60,6 @@ export class ComentarioController {
       res.status(400).json({ error: error.message });
     }
   }
-};
+}
 
 export default ComentarioController;
