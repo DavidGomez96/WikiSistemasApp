@@ -1,5 +1,6 @@
-import Usuario from '../models/usuarioModel.js';
+import Usuario from '../models/usuariosModel.js';
 import bcrypt from 'bcrypt';
+
 
 const AuthController = {
   login: async (req, res) => {

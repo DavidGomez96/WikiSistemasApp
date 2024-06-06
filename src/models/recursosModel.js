@@ -9,19 +9,10 @@ const Recurso = sequelize.define('Recurso', {
     autoIncrement: true,
     primaryKey: true,
   },
-  nombre: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true
-  },
   descripcion: {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true
-  },
-  url: {
-    type: DataTypes.STRING,
-    allowNull: true
   },
   materia_id: {
     type: DataTypes.INTEGER,

@@ -5,7 +5,7 @@ import recursoRouter from './routes/recursosRoute.js';
 import usuarioRouter from './routes/usuariosRoute.js';
 import semestreRouter from './routes/semestreRoute.js';
 import comentariosRouter from './routes/comentariosRoute.js';
-import authRouter from './routes/authRouete.js';
+import authRouter from './routes/authRoute.js';
 // import {} from './models/index.js'
 
 
@@ -14,6 +14,8 @@ const PORT = 8080;
 
 app.use(express.json()); // Para manejar las solicitudes con cuerpo en formato JSON
 app.use(cors()) 
+
+app.use('/api', comentariosRouter); // Asegúrate de que el prefijo del endpoint sea '/api'
 
 // Usar el router de materias
 app.use('/semestres', semestreRouter);
