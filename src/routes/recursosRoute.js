@@ -1,20 +1,20 @@
 import { Router } from "express";
 import RecursoController from "../controllers/recursosController.js";
 
-export const recursoRouter = Router();
+export const recursosRouter = Router();
 
 // obtener todos los recursoss
-recursoRouter.get('/materias/:materias_id', RecursoController.getAllRecursos);
+recursosRouter.get('/materias/:materias_id', RecursoController.getAllRecursos);
 // obtener los recursos segun la materia a la que pertenezcan
-recursoRouter.get('/:materia_id', RecursoController.getRecursosByMateria);
+recursosRouter.get('/:materia_id', RecursoController.getRecursosByMateria);
 
 // Crear un recurso
-recursoRouter.post('/recursos', RecursoController.createRecurso);
+recursosRouter.post('/', RecursoController.createRecurso);
 
 // Actualizar un recurso
-recursoRouter.put('/:id', RecursoController.updateRecurso);
+recursosRouter.put('/:id', RecursoController.updateRecurso);
 
 // Eliminar un recurso
-recursoRouter.delete('/:id', RecursoController.deleteRecurso);
+recursosRouter.delete('/:id', RecursoController.deleteRecurso);
 
-export default recursoRouter;
+export default recursosRouter;
