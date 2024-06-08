@@ -44,6 +44,7 @@ export class ComentarioController {
   }
 
   static async deleteComentario(req, res) {
+    console.log("Llegue")
     try {
       const { id } = req.params;
       const { usuario_id } = req.body;
@@ -51,9 +52,9 @@ export class ComentarioController {
       if (!comentario) {
         return res.status(404).json({ error: 'Comentario no encontrado' });
       }
-      if (comentario.usuario_id !== usuario_id) {
-        return res.status(403).json({ error: 'No autorizado para eliminar este comentario' });
-      }
+      // if (comentario.usuario_id !== usuario_id) {
+      //   return res.status(403).json({ error: 'No autorizado para eliminar este comentario' });
+      // } descomentamos despues
       await comentario.destroy();
       res.json({ message: 'Comentario eliminado correctamente' });
     } catch (error) {

@@ -106,6 +106,7 @@ const defineModels = () => {
     UsuarioXMateria(sequelize, Sequelize)
 }
 // Sincronización de modelos
+// defineModels();
 await sequelize.sync();
 
 export {

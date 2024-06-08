@@ -1,6 +1,7 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../../config/db.js';
 import Rol from './rolesModel.js';
+import bcrypt from "bcrypt"
 
 const Usuario = sequelize.define('Usuario', {
   usuario_id: {
@@ -11,7 +12,7 @@ const Usuario = sequelize.define('Usuario', {
   nombre: {
     type: DataTypes.STRING,
     allowNull: false,
-    unique: true
+    unique: false
   },
   correo: {
     type: DataTypes.STRING,

@@ -9,12 +9,15 @@ usuarioRouter.get('/usuarios', UsuarioController.getAllUsuarios);
 usuarioRouter.get('/:id', UsuarioController.getUsuarioById);
 
 //Crear usuario
-usuarioRouter.post('/usuarios', UsuarioController.createUsuario);
+usuarioRouter.post('/', UsuarioController.createUsuario);
 
 // Actualizar usuario
 usuarioRouter.patch('/:id', UsuarioController.updateUsuario);
 
 // Eliminar usuario
 usuarioRouter.delete('/:id', UsuarioController.deleteUsuario);
+
+//Login usuario
+usuarioRouter.post('/login', UsuarioController.login)
 
 export default usuarioRouter;
