@@ -11,8 +11,8 @@ const Recurso = sequelize.define('Recurso', {
   },
   descripcion: {
     type: DataTypes.STRING,
-    allowNull: false,
-    unique: true
+    allowNull: true,
+    unique: false
   },
   materia_id: {
     type: DataTypes.INTEGER,
