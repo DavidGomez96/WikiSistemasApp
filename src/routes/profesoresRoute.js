@@ -1,11 +1,11 @@
 // profesoresRoute.js
 
-import { Router } from "express";
+import { Router } from 'express';
 import ProfesorController from '../controllers/profesoresController.js';
 
 const profesorRouter = Router();
 
-// Ruta para obtener todos los profesores
 profesorRouter.get('/', ProfesorController.obtenerProfesores);
+profesorRouter.get('/:id/materias', ProfesorController.obtenerMateriasPorProfesor); // Nueva ruta
 
 export default profesorRouter;
