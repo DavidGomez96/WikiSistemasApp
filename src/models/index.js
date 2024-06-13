@@ -9,6 +9,7 @@ import Profesor from './profesoresModel.js';
 import Recurso from './recursosModel.js';
 import TipoRecurso from './tipoRecursosModel.js';
 import UsuarioXMateria from './usuarioXmateria.js';
+import Task from './taskModel.js'; // Importar el modelo Task
 import { Sequelize } from 'sequelize';
 
 // Relaciones
@@ -92,6 +93,14 @@ Recurso.belongsTo(TipoRecurso, {
     foreignKey: 'tipo_recurso_id'
 });
 
+Usuario.hasMany(Task, {
+    foreignKey: 'usuario_id',
+    onDelete: 'CASCADE'
+});
+Task.belongsTo(Usuario, {
+    foreignKey: 'usuario_id'
+});
+
 const defineModels = () => {
     Rol(sequelize, Sequelize)
     Usuario(sequelize, Sequelize)
@@ -104,6 +113,7 @@ const defineModels = () => {
     Recurso(sequelize, Sequelize)
     TipoRecurso(sequelize, Sequelize)
     UsuarioXMateria(sequelize, Sequelize)
+    Task(sequelize, Sequelize); // Definir el modelo Task
 }
 // Sincronización de modelos
 // defineModels();
@@ -120,5 +130,6 @@ export {
     Recurso,
     TipoRecurso,
     UsuarioXMateria,
+    Task, // Exportar el modelo Task,
     defineModels
 };
