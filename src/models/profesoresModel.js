@@ -20,7 +20,7 @@ const Profesor = sequelize.define('Profesor', {
   departamento: {
     type: DataTypes.STRING,
     allowNull: false,
-    unique: true
+    unique: false // Eliminar la restricción de unicidad en el campo departamento
   }
 }, {
   tableName: 'tbl_profesores',
